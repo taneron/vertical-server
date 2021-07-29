@@ -6,9 +6,9 @@ const AutoIncrement = Increment(mongoose)
 // const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const plantSchema = new mongoose.Schema({
+  name: String,
   referenceNo: {
     type: Number,
-    required: true,
     unique: true,
     trim: true,
   },
