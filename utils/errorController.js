@@ -1,5 +1,4 @@
-import AppError from './appError'
-import { RequestHandler } from 'express'
+import AppError from './appError.js'
 
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`

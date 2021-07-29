@@ -1,5 +1,5 @@
-import catchAsync from '../utils/catchAsync'
-import AppError from '../utils/appError'
+import catchAsync from '../utils/catchAsync.js'
+import AppError from '../utils/appError.js'
 import multer from 'multer'
 import sharp from 'sharp'
 import fs from 'fs'

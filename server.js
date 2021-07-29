@@ -1,4 +1,7 @@
 import dotenv from 'dotenv'
+import mongoose from 'mongoose'
+import app from './app'
+import AppError from './utils/appError'
 dotenv.config({ path: './config.env' })
 
 process.on('uncaughtException', (err) => {
@@ -7,10 +10,6 @@ process.on('uncaughtException', (err) => {
   console.log(err.name, err.message)
   process.exit(1)
 })
-
-import mongoose from 'mongoose'
-import app from './app'
-import AppError from './utils/appError'
 
 const DB = process.env.DB_LINK
 

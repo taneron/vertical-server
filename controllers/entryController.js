@@ -1,7 +1,7 @@
-import Entry from '../models/entryModel'
-import { getAll, getOne, updateOne, deleteOne, createOne } from './handlerFactory'
-import catchAsync from '../utils/catchAsync'
-import AppError from '../utils/appError'
+import Entry from '../models/entryModel.js'
+import { getAll, getOne, updateOne, deleteOne, createOne } from './handlerFactory.js'
+import catchAsync from '../utils/catchAsync.js'
+import AppError from '../utils/appError.js'
 
 export const getEntrys = getAll(Entry)
 export const getEntry = getOne(Entry)

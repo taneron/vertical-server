@@ -1,7 +1,7 @@
-import Plant from '../models/plantModel'
-import { getAll, getOne, updateOne, deleteOne, createOne } from './handlerFactory'
-import catchAsync from '../utils/catchAsync'
-import AppError from '../utils/appError'
+import Plant from '../models/plantModel.js'
+import { getAll, getOne, updateOne, deleteOne, createOne } from './handlerFactory.js'
+import catchAsync from '../utils/catchAsync.js'
+import AppError from '../utils/appError.js'
 
 export const getPlants = getAll(Plant)
 export const getPlant = getOne(Plant)

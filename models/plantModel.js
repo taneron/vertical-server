@@ -1,6 +1,9 @@
 import mongoose from 'mongoose'
+import Increment from 'mongoose-sequence'
 let ObjectId = mongoose.Schema.Types.ObjectId
-const AutoIncrement = require('mongoose-sequence')(mongoose)
+
+const AutoIncrement = Increment(mongoose)
+// const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const plantSchema = new mongoose.Schema({
   referenceNo: {
@@ -17,7 +20,7 @@ const plantSchema = new mongoose.Schema({
   ],
 })
 
-paymentSchema.plugin(AutoIncrement, {
+plantSchema.plugin(AutoIncrement, {
   id: 'referenceNo',
   inc_field: 'referenceNo',
   start_seq: 1000,
