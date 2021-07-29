@@ -3,7 +3,6 @@ import Increment from 'mongoose-sequence'
 let ObjectId = mongoose.Schema.Types.ObjectId
 
 const AutoIncrement = Increment(mongoose)
-// const AutoIncrement = require('mongoose-sequence')(mongoose)
 
 const plantSchema = new mongoose.Schema({
   name: String,
@@ -19,12 +18,7 @@ const plantSchema = new mongoose.Schema({
     },
   ],
 })
-
-plantSchema.plugin(AutoIncrement, {
-  id: 'referenceNo',
-  inc_field: 'referenceNo',
-  start_seq: 1000,
-})
+plantSchema.set('toJSON', { virtuals: true })
 
 plantSchema.pre(/^save/, function (next) {
   this.updatedAt = Date.now()
@@ -32,14 +26,17 @@ plantSchema.pre(/^save/, function (next) {
 })
 
 plantSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: 'entries',
-    // select: 'field',
-  })
+  if (!this.entries) next()
+  // this.populate('entries')
+  this.populate('entries')
+  // console.log(this.entries)
   next()
 })
-
-plantSchema.set('toJSON', { virtuals: true })
+plantSchema.plugin(AutoIncrement, {
+  id: 'referenceNo',
+  inc_field: 'referenceNo',
+  start_seq: 1000,
+})
 
 const Plant = mongoose.model('Plant', plantSchema)
 

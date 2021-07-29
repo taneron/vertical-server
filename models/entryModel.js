@@ -13,6 +13,7 @@ const entrySchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  image: String,
   date: { type: Date, default: Date.now() },
   updateOne: { type: Date, default: Date.now() },
 })
@@ -25,7 +26,7 @@ entrySchema.pre(/^save/, function (next) {
 entrySchema.pre(/^find/, function (next) {
   this.populate({
     path: 'plant',
-    // select: 'field',
+    select: '-entries',
   })
   next()
 })

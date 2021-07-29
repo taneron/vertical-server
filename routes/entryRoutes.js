@@ -11,10 +11,10 @@ const router = express.Router()
 
 //ImageProcessor
 import { uploadOne, resizeImage } from '../controllers/uploadFactory'
-const resize = resizeImage('image', 'entry')
+const resize = resizeImage('image', 'plants')
 
 //Endpoints
-router.route('/').get(getEntrys).post(uploadOne('entry'), resize, createEntry)
+router.route('/').get(getEntrys).post(uploadOne('image'), resize, createEntry)
 router
   .route('/:id')
   .get(getEntry)

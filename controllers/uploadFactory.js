@@ -29,7 +29,7 @@ export const resizeImage = (
     try {
       if (!req.file) return next()
 
-      req.file.filename = `${path}-${req.body.name.replace(/\s+/g, '-').toLowerCase()}-${new Date()
+      req.file.filename = `${path}-${new Date()
         .toISOString()
         .replace(/T.*/, '')
         .split('-')

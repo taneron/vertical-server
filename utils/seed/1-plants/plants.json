@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "61029ed165560d1320e179c2"
+  },
+  "name": "Tomate",
+  "referenceNo": 1000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61029eda65560d1320e179c5"
+  },
+  "name": "Gurke",
+  "referenceNo": 1001,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61029ee365560d1320e179c9"
+  },
+  "name": "Kiwi",
+  "referenceNo": 1002,
+  "__v": 0
+}]

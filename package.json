@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node  --es-module-specifier-resolution=node server.js  --input-type=module",
-    "dev": "set NODE_ENV=development&& nodemon --es-module-specifier-resolution=node server.js --input-type=module",
-    "watch": "npx tsc -w"
+    "dev": "npm run seed&& set NODE_ENV=development&& nodemon --es-module-specifier-resolution=node server.js --input-type=module",
+    "seed": "seed -u mongodb://localhost:27017/farm --drop-database ./utils/seed"
   },
   "author": "Taner",
   "license": "MIT",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
+    "mongo-seeding": "^3.7.0",
     "morgan": "^1.10.0",
     "rimraf": "^3.0.2"
   }
