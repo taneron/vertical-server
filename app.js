@@ -4,7 +4,7 @@ import AppError from './utils/appError.js'
 import globalErrorHandler from './utils/errorController.js'
 import plantRouter from './routes/plantRoutes.js'
 import entryRouter from './routes/entryRoutes.js'
-import morgan from 'morgan'
+// import morgan from 'morgan' //!DEV
 import ErrorHandler from './utils/errorController'
 
 const app = express()
