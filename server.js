@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import app from './app'
 import AppError from './utils/appError'
+import Plant from './models/plantModel'
 dotenv.config({ path: './config.env' })
 
 process.on('uncaughtException', (err) => {
@@ -22,9 +23,9 @@ else
       useFindAndModify: false,
       useUnifiedTopology: true,
     })
-    .then(() =>
+    .then(() => {
       console.log(`DB connection successful ${DB.includes('localhost') ? 'in DEV' : 'in Prod'}`)
-    )
+    })
 
 const port = process.env.PORT || 5000
 const server = app.listen(port)

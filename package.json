@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node  --es-module-specifier-resolution=node server.js  --input-type=module",
+    "start": "set NODE_ENV=production&&node  --es-module-specifier-resolution=node server.js  --input-type=module",
     "dev": "npm run seed&& set NODE_ENV=development&& nodemon --es-module-specifier-resolution=node server.js --input-type=module",
     "seed": "seed -u mongodb://localhost:27017/farm --drop-database ./utils/seed"
   },
