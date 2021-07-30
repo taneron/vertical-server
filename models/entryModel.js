@@ -14,8 +14,8 @@ const entrySchema = new mongoose.Schema({
     trim: true,
   },
   image: String,
-  date: { type: Date, default: Date.now() },
-  updateOne: { type: Date, default: Date.now() },
+  date: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 })
 
 entrySchema.pre(/^save/, function (next) {
