@@ -29,13 +29,7 @@ export const resizeImage = (
     try {
       if (!req.file) return next()
 
-      req.file.filename = `${path}-${new Date()
-        .toLocaleString()
-        .replace(' ', '-')
-        .replace(/T.*/, '')
-        .split('-')
-        .reverse()
-        .join('-')}.${format}`
+      req.file.filename = `${path}-${Math.random().toString()}.${format}`
 
       let dir = `public/img/${path}`
       if (!fs.existsSync(`./${dir}`)) {
