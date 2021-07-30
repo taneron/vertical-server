@@ -8,7 +8,13 @@ import morgan from 'morgan'
 import ErrorHandler from './utils/errorController'
 
 const app = express()
-app.use(cors({ origin: '*' })) //NOTE not secure
+app.use(
+  cors({
+    origin: ['https://vertical.netlify.app/', 'https://vertical.netlify.app'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  })
+)
+
 app.use(express.json({ limit: '10kb' }))
 app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 app.use(express.static('public'))
