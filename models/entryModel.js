@@ -19,7 +19,7 @@ const entrySchema = new mongoose.Schema({
 })
 
 entrySchema.pre(/^save/, function (next) {
-  this.updatedAt = Date.now()
+  this.updatedAt = Date.now
   next()
 })
 

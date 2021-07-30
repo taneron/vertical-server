@@ -20,11 +20,6 @@ const plantSchema = new mongoose.Schema({
 })
 plantSchema.set('toJSON', { virtuals: true })
 
-plantSchema.pre(/^save/, function (next) {
-  this.updatedAt = Date.now()
-  next()
-})
-
 plantSchema.pre(/^find/, function (next) {
   if (!this.entries) next()
   // this.populate('entries')

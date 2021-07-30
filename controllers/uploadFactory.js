@@ -30,7 +30,8 @@ export const resizeImage = (
       if (!req.file) return next()
 
       req.file.filename = `${path}-${new Date()
-        .toISOString()
+        .toLocaleString()
+        .replace(' ', '-')
         .replace(/T.*/, '')
         .split('-')
         .reverse()

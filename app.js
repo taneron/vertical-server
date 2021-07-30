@@ -4,8 +4,8 @@ import AppError from './utils/appError.js'
 import globalErrorHandler from './utils/errorController.js'
 import plantRouter from './routes/plantRoutes.js'
 import entryRouter from './routes/entryRoutes.js'
-// import morgan from 'morgan' //!DEV
 import ErrorHandler from './utils/errorController'
+// import morgan from 'morgan' //!DEV
 
 const app = express()
 app.use(
@@ -15,13 +15,14 @@ app.use(
   })
 )
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(cors({ origin: '*' }))
+
+  // app.use(morgan('dev'))
+}
 app.use(express.json({ limit: '10kb' }))
 app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 app.use(express.static('public'))
-
-if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev'))
-}
 
 app.use('/api/v1/plant', plantRouter)
 app.use('/api/v1/entry', entryRouter)
